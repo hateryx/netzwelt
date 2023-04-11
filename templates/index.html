@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+
+  <div class="mx-10 my-8 font-semibold text-lg">List of Territories</div>
+
+  <div class="block ml-10">
+  {% for each in territories %}
+    {% if each.parent == None %}
+      <div class="block text-blue-900 font-semibold">{{each.name}}</div>
+    {% endif %}
+    {% if each.parent == "1" %}
+      <div class="ml-5">{{ each.name }}</div>
+    {% endif %}
+          {% if each.parent == "101" %}
+            <div class="ml-10">{{ each.name }}</div>
+          {% endif %}
+          {% if each.parent == "102" %}
+            <div class="ml-10">{{ each.name }}</div>
+          {% endif %}
+          {% if each.parent == "103" %}
+            <div class="ml-10">{{ each.name }}</div>
+          {% endif %}
+    {% if each.parent == "2" %}
+      <div class="ml-5">{{ each.name }}</div>
+    {% endif %}
+        {% if each.parent == "201" %}
+          <div class="ml-10">{{ each.name }}</div>
+        {% endif %}
+        {% if each.parent == "202" %}
+          <div class="ml-10">{{ each.name }}</div>
+        {% endif %}
+        {% if each.parent == "203" %}
+          <div class="ml-10">{{ each.name }}</div>
+        {% endif %}
+    {% if each.parent == "3" %}
+      <div class="ml-5">{{ each.name }}</div>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+
+{% endblock %}
+
+    
+
+</html>
