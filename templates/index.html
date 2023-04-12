@@ -10,16 +10,22 @@
 
   <div class="mx-10 my-8 font-semibold text-lg">List of Territories</div>
 
-  <div class="ml-10 flex flex-row">
-    <div id="test" class="block ml-10">
+  <div class="ml-10 flex flex-row min-h-screen">
+    <div id="territories" class="block ml-10">
       {% set territories = territories %}
       {% macro render_tree(territories) -%}
-        {% for key, value in territories.items() %}
-          <div class="ml-5" id="parent-{{key}}">{{ key }}</div>
+        {% for key, value in territories|dictsort %}
           {% if value %}
-            <div class="ml-10" id="child-{{key}}">
+          <div class="ml-5 flex" id="parent-{{key.0}}">
+            <img id="carat-{{key.0}}" class="h-3 w-5 mt-1 mr-3 transform rotate-180" src="static/carat.svg"></img>
+            {{ key.0 }}
+          </div>
+          
+            <div class="ml-10" id="child-{{key.0}}">
               {{ render_tree(value) }}
             </div>
+          {% else %}
+            <div class="ml-10" id="child-{{key.0}}"> {{key.0}} </div>
           {% endif %}
         {% endfor %}
       {%- endmacro %}

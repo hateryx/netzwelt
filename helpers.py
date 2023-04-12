@@ -1,4 +1,3 @@
-import requests
 from flask import session, redirect
 from functools import wraps
 
@@ -12,10 +11,12 @@ def login_required(f):
     return decorated_function
 
 
-def territory_tree(territories, parent=None):
+def territory_tree(territories, parent=None, level=0):
     hash_tree = {}
     for each in territories:
         if each['parent'] == parent:
             territory_id = each['id']
-            hash_tree[each['name']] = territory_tree(territories, territory_id)
+            name = each['name']
+            hash_tree[(name, level)] = territory_tree(
+                territories, territory_id, level=level+1)
     return hash_tree
