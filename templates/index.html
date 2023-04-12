@@ -4,11 +4,10 @@
 {% endblock %}
 
 {% block main %}
-  <h2 class="font-semibold text-lg text-blue-700">Welcome, {{ user }}</h2>
-  <a href="/logout">Logout</a>
+  <h2 class="px-10 pt-10 font-semibold text-xl text-blue-700">Welcome, {{ user }}</h2>
   {{ error }}
 
-  <div class="mx-10 my-8 font-semibold text-lg">List of Territories</div>
+  <div class="mx-10 my-5 font-semibold text-lg">List of Territories</div>
 
   <div class="ml-10 flex flex-row min-h-screen">
     <div id="territories" class="block ml-10">
