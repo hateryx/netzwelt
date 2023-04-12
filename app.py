@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect
 import requests
+from helpers import territory_tree
 
 app = Flask(__name__)
 
@@ -18,7 +19,9 @@ def index():
     except requests.RequestException as error:
         return render_template("index.html", error=error)
 
-    territories = data['data']
+    territories_list = data['data']
+
+    territories = territory_tree(territories_list)
 
     return render_template("index.html", territories=territories)
 
