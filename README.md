@@ -8,3 +8,16 @@ Current deployment configuration is set to automatic for every push to the 'mast
 
 Refer to https://netzweltchallenge2023.herokuapp.com for the live app.
 
+<<<<<<< HEAD
+=======
+For testing in development environment, the app can be tested via Codespace in GitHub.
+
+1) Install dependency requirements 
+
+    `pip install -r requirements.txt`
+
+2) Then run the app.py. The console will provide the link.
+
+    `flask run`
+
+>>>>>>> 1491d7c (Initialize README)
